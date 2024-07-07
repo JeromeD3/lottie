@@ -19,8 +19,9 @@ const CardGrid = () => {
   const cardsRef = useRef<any>([]);
   const handleMouseMove = (e: any) => {
     requestAnimationFrame(() => {
-      if(!cardsRef.current) return
+      if (!cardsRef.current) return
       cardsRef.current.forEach((card: any) => {
+        if (!card.getBoundingClientRect) return
         const rect = card.getBoundingClientRect();
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
