@@ -44,7 +44,8 @@ const GradientMaskedImage: React.FC = () => {
 
 
 export default function Home() {
-  return <div className="flex justify-center items-center min-h-screen bg-white">
+  return <div className="flex justify-center items-center min-h-screen bg-white flex-col">
+    <h1 className="text-7xl"> hover 下方</h1>
     <GradientMaskedImage />
   </div>
 }

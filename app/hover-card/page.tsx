@@ -1,6 +1,6 @@
 // CardGrid.js
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import style from './style.module.css'
 const CardGrid = () => {
   // 假设这里有一些卡片数据

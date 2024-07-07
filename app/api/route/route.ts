@@ -4,8 +4,9 @@ import path from 'path'
 export async function GET() {
   function getDirectories(dir: string, dirlist: string[] = []): string[] {
     const files = fs.readdirSync(dir)
+    const whitelist = ['api', 'ui']
     files.forEach((file) => {
-      if (file === 'api') return
+      if (whitelist.includes(file)) return
       const fullPath = path.join(dir, file)
       if (fs.statSync(fullPath).isDirectory()) {
         dirlist.push(file)

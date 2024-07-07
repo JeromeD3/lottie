@@ -2,12 +2,9 @@
 import Lottie, { LottieRefCurrentProps } from "lottie-react";
 import PoliteChicky from '../PoliteChicky.json'
 import { useRef } from "react";
-import useGetRoutes from "@/hook/useGetRouter";
 
 
 export default function Home() {
-  const res = useGetRoutes()
-  console.log("🚀 ~ Home ~ res:", res)
   const ref = useRef<LottieRefCurrentProps>(null)
   const data = [{ value: "hello" }, { value: "hello" }, { value: "hello" }]
   return (
