@@ -37,7 +37,7 @@ const EmblaCarousel: React.FC<PropType> = (props) => {
   } = usePrevNextButtons(emblaApi, onNavButtonClick)
 
   return (
-    <section className={styles.embla}>
+    <section className={styles.embla} dir="rtl">
       <div className={styles.embla__viewport} ref={emblaRef}>
         <div className={styles.embla__container}>
           {slides.map((index) => (
