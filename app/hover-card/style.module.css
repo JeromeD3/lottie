@@ -12,5 +12,5 @@
 }
 
 .inner {
-  @apply z-[3] absolute bg-[#222] inset-2 border-inherit flex items-center justify-center rounded-md;
+  @apply z-[3] absolute bg-black opacity-70 border-white border inset-2 border-inherit flex items-center justify-center rounded-md;
 }
