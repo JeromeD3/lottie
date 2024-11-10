@@ -17,7 +17,6 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({ text, className })
     target: targetRef,
   })
   useEffect(() => {
-    console.log('🚀 ~ file: TextReveal.tsx:26 ~ useEffect ~ scrollYProgress:', scrollYProgress)
   }, [scrollYProgress])
   const words = text.split(' ')
 
@@ -28,7 +27,6 @@ export const TextRevealByWord: FC<TextRevealByWordProps> = ({ text, className })
           {words.map((word, i) => {
             const start = i / words.length
             const end = start + 1 / words.length
-            console.log('🚀 ~ {words.map ~ scrollYProgress:', scrollYProgress, start, end)
 
             return (
               <Word key={i} progress={scrollYProgress} range={[start, end]}>

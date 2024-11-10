@@ -148,7 +148,7 @@ export default function Works17() {
             {initialValues.map((item, i) => (
               <Link
                 key={i}
-                className="text-natural-400 hover:text-natural-200 whitespace-nowrap text-sm"
+                className="text-gray-400 hover:text-gray-200 whitespace-nowrap text-sm"
                 href={item.link}
                 onClick={() => {
                   setOpen(false)
