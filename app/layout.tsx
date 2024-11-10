@@ -19,12 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <div className="flex h-screen flex-col md:flex-row md:overflow-hidden">
-          <div className="w-full flex-none md:w-64">
+        <div className="flex">
+          <div className="w-full md:w-64 h-full fixed left-0">
             <SideNav />
           </div>
           <Providers>
-            <div className="flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
+            <div className="ml-64 flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
           </Providers>
         </div>
       </body>
