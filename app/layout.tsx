@@ -1,10 +1,7 @@
 import type { Metadata } from 'next'
-// import { Inter } from 'next/font/google'
 import './globals.css'
-import SideNav from './ui/SideNav'
+import NavLinks from '@/app/ui/NavLinks'
 import Providers from '@/components/ui/provider'
-
-// const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -13,20 +10,25 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <div className="flex">
-          <div className="w-full md:w-64 h-full fixed left-0">
-            <SideNav />
+        <Providers>
+          <div className="flex min-h-screen">
+            <aside className="fixed inset-y-0 z-50 flex h-full w-52 flex-col border-r bg-background">
+              <div className="border-b px-6 py-4">
+                <h2 className="text-lg font-semibold">My App</h2>
+              </div>
+              <NavLinks />
+            </aside>
+            <main className="flex-1 pl-52">
+              {children}
+            </main>
           </div>
-          <Providers>
-            <div className="ml-64 flex-grow p-6 md:overflow-y-auto md:p-12">{children}</div>
-          </Providers>
-        </div>
+        </Providers>
       </body>
     </html>
   )

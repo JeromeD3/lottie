@@ -1,5 +1,7 @@
 'use client'
-import { useState } from "react";
+import { useState } from 'react'
+import { Card } from "@/components/ui/card"
+import { motion } from "framer-motion"
 
 type Coordinates = {
   x: number;
@@ -43,9 +45,24 @@ const GradientMaskedImage: React.FC = () => {
 };
 
 
-export default function Home() {
-  return <div className="flex justify-center items-center min-h-screen bg-white flex-col">
-    <h1 className="text-7xl"> hover 下方</h1>
-    <GradientMaskedImage />
-  </div>
+export default function HoverPage() {
+  return (
+    <div className="flex justify-center items-center min-h-screen bg-background flex-col gap-8">
+      <motion.h1 
+        className="text-7xl font-bold text-foreground"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        hover 下方
+      </motion.h1>
+      <motion.div
+        whileHover={{ scale: 1.05 }}
+        transition={{ type: "spring", stiffness: 300 }}
+      >
+        <Card className="p-4 hover:shadow-xl transition-shadow">
+          <GradientMaskedImage />
+        </Card>
+      </motion.div>
+    </div>
+  )
 }

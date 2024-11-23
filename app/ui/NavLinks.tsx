@@ -1,46 +1,58 @@
 'use client';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import clsx from 'clsx';
+import { Button } from "@/components/ui/button";
 import { fetchRoutes } from '@/hook/useGetRouter';
 import { useEffect, useState } from 'react';
+import { cn } from "@/lib/utils";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 export default function NavLinks() {
   const pathname = usePathname();
-  const [links, setLinks] = useState([])
+  const [links, setLinks] = useState([]);
 
   useEffect(() => {
     fetchRoutes().then(data => {
-      const res = data.directories.map((link: any) => {
+      const res = data.directories.map((link: string) => {
         return {
           name: link,
           href: `/${link}`,
-        }
-      })
-      setLinks(res)
-    })
-  }, [])
-
-
+        };
+      });
+      setLinks(res);
+    });
+  }, []);
 
   return (
-    <>
-      {links.map((link: any) => {
-        return (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={clsx(
-              'flex h-[48px] grow items-center justify-center gap-2 rounded-md bg-gray-50 p-3 text-sm font-medium hover:bg-sky-100 hover:text-blue-600 md:flex-none md:justify-start md:p-2 md:px-3',
-              {
-                'bg-sky-100 text-blue-600': pathname === link.href,
-              },
-            )}
-          >
-            <p className="hidden md:block">{link.name}</p>
-          </Link>
-        );
-      })}
-    </>
+    <ScrollArea className="flex-1">
+      <div className="space-y-4 py-4">
+        <div className="px-3 py-2">
+          <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
+            Navigation
+          </h2>
+          <div className="space-y-1">
+            {links.map((link: any) => (
+              <Button
+                key={link.name}
+                variant={pathname === link.href ? "secondary" : "ghost"}
+                className={cn(
+                  "w-full justify-start",
+                  "flex h-[48px] grow items-center gap-2",
+                  "text-sm font-medium",
+                  "transition-colors",
+                  pathname === link.href && "bg-secondary text-secondary-foreground",
+                  "hover:bg-secondary/80"
+                )}
+                asChild
+              >
+                <Link href={link.href}>
+                  <span className="truncate">{link.name}</span>
+                </Link>
+              </Button>
+            ))}
+          </div>
+        </div>
+      </div>
+    </ScrollArea>
   );
 }
