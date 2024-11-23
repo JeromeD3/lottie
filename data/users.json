@@ -1,0 +1,8 @@
+{
+  "currentUser": {
+    "id": "1",
+    "name": "bbb",
+    "email": "xxx@email.com",
+    "avatarUrl": "/path/to/avatar.jpg"
+  }
+}

@@ -13,5 +13,15 @@
   "aliases": {
     "components": "@/components",
     "utils": "@/lib/utils"
+  },
+  "components": {
+    "avatar": {
+      "path": "components/ui/avatar",
+      "type": "component"
+    },
+    "card": {
+      "path": "components/ui/card",
+      "type": "component"
+    }
   }
 }

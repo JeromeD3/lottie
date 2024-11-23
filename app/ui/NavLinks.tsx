@@ -59,7 +59,7 @@ export default function NavLinks() {
   return (
     <ScrollArea className="flex-1">
       <div className="space-y-4 py-4">
-        <div className="px-3 py-2">
+        <div className="">
           <h2 className="mb-2 px-4 text-lg font-semibold tracking-tight">
             Navigation
           </h2>
