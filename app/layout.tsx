@@ -25,9 +25,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
           <Providers>
             <div className="min-h-screen flex">
-              {/* 侧边栏 */}
               <aside className="w-[280px] border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex flex-col  fixed ">
-                {/* 顶部用户信息和操作区 */}
                 <div className="p-4 border-b">
                   <div className="flex items-center justify-between mb-4">
                     <TooltipProvider>
@@ -45,58 +43,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
                     <div className="flex items-center gap-2">
                       <ModeToggle />
-                      <DropdownMenu>
-                        <DropdownMenuTrigger asChild>
-                          <Button variant="ghost" size="icon">
-                            <MenuIcon className="h-4 w-4" />
-                          </Button>
-                        </DropdownMenuTrigger>
-                        <DropdownMenuContent align="end" className="w-48">
-                          <DropdownMenuLabel>我的账户</DropdownMenuLabel>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem>
-                            <Settings className="mr-2 h-4 w-4" />
-                            <span>设置</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuItem>
-                            <Bell className="mr-2 h-4 w-4" />
-                            <span>通知</span>
-                          </DropdownMenuItem>
-                          <DropdownMenuSeparator />
-                          <DropdownMenuItem className="text-red-600">
-                            <LogOut className="mr-2 h-4 w-4" />
-                            <span>退出登录</span>
-                          </DropdownMenuItem>
-                        </DropdownMenuContent>
-                      </DropdownMenu>
                     </div>
                   </div>
                   <UserProfile />
                 </div>
 
-                {/* 搜索框 */}
-                <div className="p-4">
-                  <div className="relative">
-                    <Search className="absolute left-2 top-2.5 h-4 w-4 text-muted-foreground" />
-                    <Input placeholder="搜索..." className="pl-8" />
-                  </div>
-                </div>
-
-                {/* 导航区域 */}
                 <div className="flex-1 flex flex-col p-4">
-                  {/* 主要导航 */}
                   <nav className="space-y-2">
                     <NavLinks />
                   </nav>
                 </div>
 
-                {/* 底部信息 */}
                 <div className="p-4 border-t">
                   <p className="text-xs text-muted-foreground text-center">© 2024 Your App. All rights reserved.</p>
                 </div>
               </aside>
 
-              {/* 主要内容区域 */}
               <main className="flex-1 overflow-auto bg-muted/5 ml-[280px]">
                 <div className="py-6 px-4">{children}</div>
               </main>

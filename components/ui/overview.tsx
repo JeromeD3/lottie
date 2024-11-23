@@ -2,6 +2,7 @@
 
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts"
 import { motion } from "framer-motion"
+import { memo } from "react"
 
 const data = [
   {
@@ -78,7 +79,7 @@ const data = [
   },
 ]
 
-export function Overview() {
+export const Overview = memo(function Overview() {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -165,4 +166,4 @@ export function Overview() {
       </ResponsiveContainer>
     </motion.div>
   )
-} 
+}) 
