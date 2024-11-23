@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import './globals.css'
 import NavLinks from '@/app/ui/NavLinks'
 import Providers from '@/components/ui/provider'
+import { ThemeProvider } from '@/components/theme-provider'
+import { ModeToggle } from '@/components/mode-toggle'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -15,20 +17,42 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-        <Providers>
-          <div className="flex min-h-screen">
-            <aside className="fixed inset-y-0 z-50 flex h-full w-52 flex-col border-r bg-background">
-              <div className="border-b px-6 py-4">
-                <h2 className="text-lg font-semibold">My App</h2>
+      <body className="min-h-screen">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Providers>
+            <div className="relative flex min-h-screen">
+              {/* Sidebar */}
+              <aside className="sticky top-0 flex h-screen w-52 flex-col border-r bg-background">
+                <div className="flex h-14 items-center border-b px-6">
+                  <h2 className="text-lg font-semibold">My App</h2>
+                  <div className="ml-auto">
+                    <ModeToggle />
+                  </div>
+                </div>
+                <NavLinks />
+              </aside>
+
+              {/* Main Content */}
+              <div className="flex-1">
+                <header className="sticky top-0 z-50 h-14 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+                  <div className="flex h-14 items-center px-6">
+                    <div className="flex flex-1 items-center justify-between">
+                      <h2 className="text-sm font-semibold">Dashboard</h2>
+                    </div>
+                  </div>
+                </header>
+                <main className="flex-1 p-6">
+                  {children}
+                </main>
               </div>
-              <NavLinks />
-            </aside>
-            <main className="flex-1 pl-52">
-              {children}
-            </main>
-          </div>
-        </Providers>
+            </div>
+          </Providers>
+        </ThemeProvider>
       </body>
     </html>
   )
