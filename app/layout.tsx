@@ -4,6 +4,9 @@ import NavLinks from '@/app/ui/NavLinks'
 import Providers from '@/components/ui/provider'
 import { ThemeProvider } from '@/components/theme-provider'
 import { ModeToggle } from '@/components/mode-toggle'
+import { HomeIcon } from 'lucide-react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -28,11 +31,14 @@ export default function RootLayout({
             <div className="relative flex min-h-screen">
               {/* Sidebar */}
               <aside className="sticky top-0 flex h-screen w-52 flex-col border-r bg-background">
-                <div className="flex h-14 items-center border-b px-6">
-                  <h2 className="text-lg font-semibold">My App</h2>
-                  <div className="ml-auto">
-                    <ModeToggle />
-                  </div>
+                <div className="flex h-14 items-center justify-between border-b px-4">
+                  <Button variant="ghost" asChild className="gap-2">
+                    <Link href="/">
+                      <HomeIcon className="h-5 w-5" />
+                      <span className="font-semibold">Home</span>
+                    </Link>
+                  </Button>
+                  <ModeToggle />
                 </div>
                 <NavLinks />
               </aside>
