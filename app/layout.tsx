@@ -26,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Providers>
             <div className="min-h-screen flex">
               {/* 侧边栏 */}
-              <aside className="w-[280px] border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex flex-col">
+              <aside className="w-[280px] border-r bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 flex flex-col  fixed ">
                 {/* 顶部用户信息和操作区 */}
                 <div className="p-4 border-b">
                   <div className="flex items-center justify-between mb-4">
@@ -97,7 +97,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </aside>
 
               {/* 主要内容区域 */}
-              <main className="flex-1 overflow-auto bg-muted/5">
+              <main className="flex-1 overflow-auto bg-muted/5 ml-[280px]">
                 <div className="py-6 px-4">{children}</div>
               </main>
             </div>
