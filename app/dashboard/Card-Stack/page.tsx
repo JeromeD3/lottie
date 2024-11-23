@@ -1,5 +1,5 @@
 'use client'
-import { CardStack } from '../ui/card-stack'
+import { CardStack } from '@/app/ui/card-stack'
 import { cn } from '@/lib/utils'
 export default function CardStackDemo() {
   return (

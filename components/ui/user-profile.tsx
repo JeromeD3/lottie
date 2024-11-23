@@ -49,7 +49,7 @@ export function UserProfile() {
   }
 
   return (
-    <Link href="/profile">
+    <Link href="/dashboard/profile">
       <Card className="w-full border-none shadow-none bg-transparent hover:bg-accent/50 transition-colors">
         <CardHeader className="flex flex-row items-center gap-4 p-2">
           <Avatar className="h-12 w-12 border-2 border-primary/10">

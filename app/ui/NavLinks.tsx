@@ -80,7 +80,7 @@ export default function NavLinks() {
                   )}
                   asChild
                 >
-                  <Link href={link.href}>
+                  <Link href={`/dashboard/${link.href}`}>
                     <Icon className="h-4 w-4" />
                     <span className="truncate">{link.name}</span>
                   </Link>

@@ -1,7 +1,7 @@
 'use client'
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false })
 
-import PoliteChicky from '../PoliteChicky.json'
+import PoliteChicky from '@/app/PoliteChicky.json'
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
 

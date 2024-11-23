@@ -4,7 +4,7 @@ import path from 'path'
 export async function GET() {
   function getDirectories(dir: string, dirlist: string[] = []): string[] {
     const files = fs.readdirSync(dir)
-    const whitelist = ['api', 'ui']
+    const whitelist = ['api', 'ui', 'dashboard']
     files.forEach((file) => {
       if (whitelist.includes(file)) return
       const fullPath = path.join(dir, file)
@@ -16,7 +16,7 @@ export async function GET() {
     return dirlist
   }
 
-  const directories: string[] = getDirectories(path.join(process.cwd(), 'app'))
+  const directories: string[] = getDirectories(path.join(process.cwd(), 'app/dashboard'))
 
   return NextResponse.json({ directories })
 }
