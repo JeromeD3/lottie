@@ -1,8 +1,30 @@
-{
-  "currentUser": {
-    "id": "1",
-    "name": "dxbbbbbbbbbbddd",
-    "email": "sadasdas@email.com",
-    "avatarUrl": "/path/to/avatar.jpg"
+[
+  {
+    "id": 1,
+    "name": "Admin User",
+    "email": "admin@example.com",
+    "role": "Admin",
+    "status": "Active"
+  },
+  {
+    "name": "Test User",
+    "email": "test@example.com",
+    "role": "Admin",
+    "status": "Inactive",
+    "id": 2
+  },
+  {
+    "name": "dxbbbb",
+    "email": "123@qq.com",
+    "role": "User",
+    "status": "Active",
+    "id": 3
+  },
+  {
+    "name": "ddb",
+    "email": "222@qq.cc",
+    "role": "User",
+    "status": "Active",
+    "id": 4
   }
-}
+]

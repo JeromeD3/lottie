@@ -19,6 +19,7 @@ import {
   Shapes,
   Sparkles,
   Wand2,
+  TableIcon,
 } from 'lucide-react';
 
 // 图标映射
@@ -35,6 +36,7 @@ const iconMap: { [key: string]: React.ElementType } = {
   'AppleCarousel': CircuitBoard,
   'btn': Puzzle,
   'ui': Wand2,
+  'table': TableIcon,
 };
 
 export default function NavLinks() {
@@ -50,7 +52,7 @@ export default function NavLinks() {
       const res = data.directories.map((link: string) => ({
         name: link,
         href: `/${link}`,
-        icon: iconMap[link] || Boxes // 使用映射的图标或默认图标
+        icon: iconMap[link] || Boxes
       }));
       setLinks(res);
     });
